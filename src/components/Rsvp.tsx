@@ -1,6 +1,11 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { useState } from "react";
 import { setCustomBackgroundImage } from "../utils/helpers";
+import { toast } from "react-toastify";
 
+
+type RsvpProps = {
+  setPrintIv: React.Dispatch<React.SetStateAction<Toggle>>
+}
 
 const initInputValue = {
   name: '', phoneNumber: '', present: {
@@ -8,20 +13,30 @@ const initInputValue = {
     "NO": false
   }, numberOfGuests: 'Number of Guests', isAttendingType: 'What will you be Attending',
 }
-
-export default function Rsvp() {
+const initAppState = { isLoading: false, error: '' }
+export default function Rsvp({ setPrintIv }: RsvpProps) {
+  const [appState, setAppState] = useState<typeof initAppState>(initAppState);
   const WhatWillYouBeAttending = ['Engagement', 'Church Ceremony', 'Reception', 'All Events']
   const [inputValue, setInputValue] = useState<typeof initInputValue>(initInputValue);
 
-  const { name, phoneNumber, present, numberOfGuests, isAttendingType } = inputValue
+  const { name, phoneNumber, present, numberOfGuests, isAttendingType } = inputValue;
+  const { isLoading } = appState;
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
+  const handleSubmit = () => {
+    setAppState(prev => ({...prev, isLoading: true}));
     try {
       console.log(inputValue)
+      setPrintIv('OPEN')
+      toast.success('RSVP submitted, Please print your Invitation Card')
     }
     catch (error) {
       console.log(error)
+      setPrintIv('OPEN')
+      setAppState(prev => ({...prev, error: ''}));
+      toast.error('Fail to submit')
+    }
+    finally{
+      setAppState(prev => ({...prev, isLoading: false}));
     }
   }
   return (
@@ -32,8 +47,8 @@ export default function Rsvp() {
       )}
       className="maxscreen:mt- h-full w-full flex flex-col maxscreen:items-center gap-y-6 py-14 sm:pl-14"
     >
-      <form onSubmit={handleSubmit} className="p-5 bg-white rounded-md flex flex-col gap-y-4 w-72 text-xs">
-        <legend className="vibes text-2xl font-bold tracking-wider capitalize text-center">Are You Attending</legend>
+      <div className="p-5 bg-white rounded-md flex flex-col gap-y-4 w-72 text-xs">
+        <h3 className="vibes text-2xl font-bold tracking-wider capitalize text-center">Are You Attending</h3>
 
         <Inputs
           value={name} name='name' placeholder='Name' type='name'
@@ -92,12 +107,12 @@ export default function Rsvp() {
         </select>
 
         <button
-          type="submit"
-          className="bg-pink-600 border-0 px-5 self-center text-sm w-fit py-3 rounded-[3px] focus:outline-0 hover:bg-gradient-to-tr from-pink-600 to-pink-700 text-black"
+          onClick={handleSubmit}
+          className="bg-pink-600 text-white border-0 px-5 self-center text-sm w-fit py-3 rounded-[3px] focus:outline-0 hover:bg-gradient-to-tr from-pink-500 to-pink-800"
         >
-          RSVP
+          {isLoading ? 'In progress...' : 'RSVP'}
         </button>
-      </form>
+      </div>
     </div>
   )
 }

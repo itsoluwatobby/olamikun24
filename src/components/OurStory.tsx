@@ -30,19 +30,22 @@ export default function OurStory() {
      
         <div className='h-full flex flex-col gap-5'>
           <TimelineCard 
-            observerRef={observerRef0} isIntersecting={isIntersecting0}
-            title='Hackathon Announcement' date='November 18, 2023' count={1}
-            content='The getlinked tech hackathon 1.0 is formally announced to the general public and teams begin to get ready to register'
+            observerRef={observerRef0} isIntersecting={isIntersecting0}  image={[
+              'https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/beginning%2FIMG-20240122-WA0005.jpg?alt=media&token=24a88662-b7bd-4b35-b08c-db57327fb840',
+              'https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/beginning%2FIMG-20240122-WA0000.jpg?alt=media&token=642d328d-6855-42e2-b1c6-1bb90563bb06'
+            ]}
+            title='How we meet' date='' count={1}
+            content="I just had that feeling i've found the right one for me"
             />
         
           <TimelineCard 
-            observerRef={observerRef1} isIntersecting={isIntersecting1}
+            observerRef={observerRef1} isIntersecting={isIntersecting1} image={[]}
             title='Teams Registration begins' date='November 18, 2023' count={2}
             content='Interested teams can now show their interest in the getlinked tech hackathon 1.0 2023 by proceeding to register'
             />
           
           <TimelineCard 
-            observerRef={observerRef2}  isIntersecting={isIntersecting2}
+            observerRef={observerRef2}  isIntersecting={isIntersecting2} image={[]}
             title='Teams Registration begins' date='November 18, 2023' count={3}
             content='Interested Participants are no longer Allowed to register'
             />
@@ -64,19 +67,19 @@ export default function OurStory() {
 
         <div className='h-full flex flex-col gap-5'>
           <TimelineCard 
-            observerRef={observerRef3} isIntersecting={isIntersecting3}
+            observerRef={observerRef3} isIntersecting={isIntersecting3} image={[]}
             title='Announcement of the accepted teams and ideas' date='November 18, 2023' count={4}
             content='All teams whom idea has been accepted into getlinked tech hackathon 1.0 2023 are formally announced'
             />
 
           <TimelineCard 
-            observerRef={observerRef4} isIntersecting={isIntersecting4}
+            observerRef={observerRef4} isIntersecting={isIntersecting4} image={[]}
             title='Getlinked Hackathon 1.0 Offically Begins' date='November 18, 2023' count={5}
             content='Accepted teams can now proceed to build their ground breaking skill driven solutions'
           />
 
           <TimelineCard 
-            observerRef={observerRef5} isIntersecting={isIntersecting5}
+            observerRef={observerRef5} isIntersecting={isIntersecting5} image={[]}
             title='Demo Day' date='November 18, 2023' count={6}
             content='Teams get the opportunity to pitch their projects to judges. The winner of the hackathon will also be announced on this day'
           />
@@ -94,11 +97,12 @@ type CardProps = {
   date: string,
   content: string,
   count: number,
+  image: string[],
   isIntersecting: IsIntersectingType,
   observerRef: (node: HTMLDivElement) => void
 }
 
-const TimelineCard = ({ title, date, content, count, isIntersecting, observerRef }: CardProps) => {
+const TimelineCard = ({ title, date, content, image, count, isIntersecting, observerRef }: CardProps) => {
 
   return (
     <div 
@@ -113,7 +117,17 @@ const TimelineCard = ({ title, date, content, count, isIntersecting, observerRef
 
       <div className={`flex ${count > 3 ? 'md:flex-col-reverse flex-col' : 'flex-col'} gap-1 md:gap-11 whitespace-pre-wrap font-medium cursor-pointer transition-all leading-5`}>
         <div className='flex flex-col gap-1'>
-          <p className=''>{title}</p>
+          <p className='vibes font-semibold text-base'>{title}</p>
+
+          <div className="flex items-center gap-x-2">
+            {
+              image.map((img, i) => (
+                <figure key={i} className="flex-none bg-slate-300 bg-opacity-50 w-24 h-24 rounded-full shadow-sm border-0">
+                  <img src={img} alt="" className='h-full w-full object-contain rounded-full' />
+                </figure>
+              ))
+            }
+          </div>
           <p className='w-[90%] text-[11px]'>{content}</p>
         </div>
         <p className={`text-[#5a1a6a] ${count > 3 ? (isIntersecting === 'STOP' ? 'text-right' : 'text-left') : (isIntersecting === 'STOP' ? 'md:text-left text-right' : 'md:text-right text-left')} transition-all`}>{date}</p>

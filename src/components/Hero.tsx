@@ -1,11 +1,46 @@
 // import { setCustomBackgroundImage } from '../utils/helpers'
 
+import { useEffect, useState } from "react"
+
+// import { dateCountDown } from "../utils/helpers";
+
 // import { dateCountDown, setCustomBackgroundImage } from "../utils/helpers";
 
 
 export default function Hero() {
+  const targetDate = new Date("Mar 2, 2024 00:00:00").getTime()
+  const [dateCountDown, setDateCountDown] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  })
 
-  // console.log(ate)
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const today = new Date().getTime();
+      const duration = targetDate - today
+ 
+      if (duration < 0) {
+        clearInterval(intervalId);
+        setDateCountDown(prev => ({ ...prev, days: 0, hours: 0, minutes: 0, seconds: 0 }));
+        return;
+      }
+      else {
+        const oneDay = 1000 * 60 * 60 * 24;
+        const oneHour = 1000 * 60 * 60;
+        const oneMinute = 1000 * 60;
+        const days = Math.floor(duration / oneDay);
+        const hours = Math.floor((duration % oneDay) / oneHour);
+        const minutes = Math.floor((duration % oneHour) / oneMinute);
+        const seconds = Math.floor((duration % oneMinute) / 1000);
+        setDateCountDown(prev => ({
+          ...prev, days, hours, minutes, seconds
+        }));
+      }
+    }, 1000)
+  }, [targetDate])
+
   return (
     <div
       id='Home'
@@ -27,26 +62,16 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* <div
-        style={setCustomBackgroundImage(
-          'https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/new%2FIQA_7185.jpg?alt=media&token=e7d448ec-7ce3-40f0-8640-d2587e7257a2',
-          {
-            backgroundColor: 'gray',
-            backgroundSize: 'contain'
-          }
-        )}
-        className="flex-none relative w-full sm:w-[60%] h-full rounded-tr-lg rounded-br-lg shadow-sm border-0">
-        <div className="absolute left-5 text-white bg-pink-800 bg-opacity-70 rounded-md p-1 px-5 font-bold text-4xl bottom-5 flex items-center justify-between w-[90%]">
-          {
-            Object.entries(dateCountDown()).map(([key, value]) => (
-              <p key={key} className="font-serif flex flex-col justify-center">
-                <span>{value}</span>
-                <span className="capitalize italic text-base font-normal">{key}</span>
-              </p>
-            ))
-          }
-        </div>
-      </div> */}
+      <div className="absolute right-5 top-20 text-white b-pink-800 bg-opacity-70 rounded-md font-bold text-4xl flex items-center gap-x-5">
+        {
+          Object.entries(dateCountDown).map(([key, value]) => (
+            <div key={key} className="font-serif flex flex-col justify-center rounded-md border bg-opacity-60 shadow p-2">
+              <span className='inter text-2xl'>{value}</span>
+              <span className="capitalize italic text-base font-normal">{key}</span>
+            </div>
+          ))
+        }
+      </div>
     </div>
   )
 }

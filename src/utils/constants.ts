@@ -1,3 +1,4 @@
+import { FaFacebookF, FaInstagram, FaXTwitter } from "react-icons/fa6";
 
 export const eventTypes = [
   {
@@ -16,3 +17,17 @@ export const eventTypes = [
     venue: "Alma-Rohm Baptism Church Multipurpose hall, Ile Maarun, Hospital Road, Iwo Osun State."
   },
 ]
+
+export const Socials = {
+  Groom: [
+    { link: 'https://www.facebook.com/Lekuzege?mibextid=ZbWKwL', icon: FaFacebookF }, 
+    { link: 'https://x.com/itsbiggiebiggie?s=21', icon: FaXTwitter }, 
+    { link: 'https://www.instagram.com/olanipekunolalekan?igsh=dHB1NDk0MThzMzdw', icon: FaInstagram }
+  ],
+  Bride: [
+    { link: '', icon: FaFacebookF }, 
+    { link: '', icon: FaXTwitter }, 
+    { link: 'https://www.instagram.com/kunmi_klothing?igsh=NTc4MTIwNjQ2YQ==', icon: FaInstagram }
+  ]
+
+} 
