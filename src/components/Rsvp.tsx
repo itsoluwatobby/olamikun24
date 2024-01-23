@@ -131,7 +131,7 @@ const Inputs = ({ type, value, name, placeholder, required, setInputValue }: Inp
   return (
     <input type={type}
       name={name} value={value}
-      inputMode={type == 'tel' ? 'numeric' : 'text'}
+      // inputMode={type == 'tel' ? 'numeric' : 'text'}
       placeholder={placeholder}
       required={required}
       onChange={e => setInputValue(prev => ({ ...prev, [e.target.name]: e.target.value }))}
