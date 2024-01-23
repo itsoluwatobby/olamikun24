@@ -13,7 +13,12 @@ h1, h2, h3, h4 {
 }
 body {
   font-family: 'Playfair Display', serif;
+  background-image: url('https://images.unsplash.com/photo-1523170887496-4f2e67dd4446?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  z-index: -1;
 }
+
 .inter {
   font-family: 'Inter', sans-serif;
 }

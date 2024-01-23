@@ -17,10 +17,10 @@ export default function About() {
 
         <div className="flex-auto flex items-baseline maxscreen:flex-col maxscreen:items-center gap-3">
           <figure className="flex-none bg-slate-300 bg-opacity-50 w-44 h-44 rounded-full shadow-sm border-0">
-            <img src="" alt="" className='h-full w-full object-cover rounded-full' />
+            <img src="https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/mid%2FIMG-20240122-WA0011.jpg?alt=media&token=78f937da-ac8c-4f42-bcc1-c7eb5ac9d8a9" alt="" className='h-full w-full object-cover rounded-full' />
           </figure>
           <figure className="flex-none bg-slate-300 bg-opacity-50 w-44 h-44 rounded-full shadow-sm border-0">
-            <img src="" alt="" className='h-full w-full object-cover rounded-full' />
+            <img src="https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/new%2FDSC_1522.JPG?alt=media&token=1072b2bb-ee6c-44dc-b0a4-abf926f69638" alt="" className='h-full w-full object-contain rounded-full' />
           </figure>
         </div>
 

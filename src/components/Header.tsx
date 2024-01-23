@@ -8,13 +8,13 @@ type HeaderProps = {
 }
 export default function Header({ open, setOpen }: HeaderProps) {
   const navButtons = [
-    'Home', 'About', 'Our Story', 'Person of Interest', 'RSVP', 'Our Wedding']
+    'Home', 'About', 'Our Story', 'Person of Interest', 'RSVP', 'Our Wedding', 'Contact']
   const [active, setActive] = useState<string>(navButtons[0]);
 
 
   return (
     <nav
-      className='sticky top-0 pb-2 pt-5 flex items-center sm:justify-center z-50 bg-white w-full'>
+      className='fixed top-0 pb-2 pt-5 flex items-center sm:justify-center z-50 bg-white w-full'>
       <ul className={`bg-white maxscreen:w-full maxscreen:shadow-md maxscreen:rounded-b-2xl maxscreen:z-20 maxscreen:fixed maxscreen:top-0 maxscreen:py-5 flex items-center gap-5 justify-center font-medium maxscreen:flex-col transition-all ${open ? '' : 'maxscreen:hidden'}`}>
         {
           navButtons.map(nav => (

@@ -1,4 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from "react";
+import { setCustomBackgroundImage } from "../utils/helpers";
 
 
 const initInputValue = {
@@ -25,9 +26,13 @@ export default function Rsvp() {
   }
   return (
     <div
-      className="maxscreen:mt- h-full w-full flex flex-col items-center gap-y-6 p-3"
+    id='RSVP'
+      style={setCustomBackgroundImage(
+        'https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/new%2FIQA_7237.jpg?alt=media&token=7e15e73c-3aeb-49b6-bf16-238f4e3f6f70'
+      )}
+      className="maxscreen:mt- h-full w-full flex flex-col maxscreen:items-center gap-y-6 py-14 sm:pl-14"
     >
-      <form onSubmit={handleSubmit} className="bg-white rounded-md flex flex-col gap-y-4 w-72 text-xs">
+      <form onSubmit={handleSubmit} className="p-5 bg-white rounded-md flex flex-col gap-y-4 w-72 text-xs">
         <legend className="vibes text-2xl font-bold tracking-wider capitalize text-center">Are You Attending</legend>
 
         <Inputs

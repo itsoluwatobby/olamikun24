@@ -1,6 +1,34 @@
 
-export default function Footer({}: Props) {
+export default function Footer() {
   return (
-    <footer>Footer</footer>
+    <footer 
+    id="Contact"
+    className="-mb-6 bg-black text-white w-full p-3 flex flex-col gap-y-10">
+      <div className="flex items-start justify-between">
+        <div className="flex flex-col">
+          <h3>R . S . V . P</h3>
+          <div className="font-semibold">
+            <p className="font-medium">Call:</p>
+            <div className="flex items-center gap-8">
+              <div className="flex flex-col items-center">
+                <p>Bukola</p>
+                <p className="inter font-medium">09130014348</p>
+              </div>  
+              <div className="flex flex-col items-center">
+                <p>Victor</p>
+                <p className="inter font-medium">08106346950</p>
+              </div>  
+
+            </div>
+          </div>
+        </div>
+
+        <figure className="bg-gray-800 w-14 h-14 rounded-full">
+          <img src="https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/new%2FIQA_7237.jpg?alt=media&token=7e15e73c-3aeb-49b6-bf16-238f4e3f6f70'" alt="" className="rounded-full h-full w-full object-cover" />
+        </figure>
+      </div>
+
+      <p className="text-center inter text-xs">Copyright &copy; {new Date().getFullYear()}  OLAMIKUN'24{}</p>
+    </footer>
   )
 }
