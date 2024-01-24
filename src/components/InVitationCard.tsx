@@ -1,5 +1,4 @@
 import InvitationCardImg from '/olamikun24.jpg'
-import { FaFileDownload } from "react-icons/fa"
 
 
 type InvitationCardProps = {
@@ -18,13 +17,16 @@ export const InvitationCard = ({ setPrintIv }: InvitationCardProps) => {
       <figure
         className="relative w-[29rem] top-[6.5rem] -mt-16 shadow-md bg-slate-400 min-h-[37rem] max-h-[30rem] rounded-tr-xl rounded-bl-xl">
         <a href={InvitationCardImg}
-        download={'OLAMIKUN24'}
-        className="absolute z-10 top-2 left-2"
+          download={'OLAMIKUN24'}
+          className="absolute z-10 top-2 left-2"
         >
-          <FaFileDownload title='download Invite'
-            className='text-3xl text-black cursor-pointer hover:opacity-90 active:opacity-100 transition-opacity' />
+          <button
+            className='focus:outline-0 border-0 text-white rounded-sm bg-green-600 text-xs px-4 py-2 hover:opacity-90 active:opacity-100 transition-opacity'
+          >
+            Download
+          </button>
         </a>
-          <img src={InvitationCardImg} loading="eager"
+        <img src={InvitationCardImg} loading="eager"
           className="object-cover rounded-tr-xl rounded-bl-xl w-full h-full"
         />
       </figure>
