@@ -33,8 +33,7 @@ export default function Rsvp({ setPrintIv, setOpen }: RsvpProps) {
 
   const canSubmit = [name, phoneNumber].every(Boolean);
 
-  const handleSubmit = async(event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
+  const handleSubmit = async() => {
     if (isLoading) return
     setAppState(prev => ({...prev, isLoading: true}));
     try {
@@ -81,15 +80,15 @@ export default function Rsvp({ setPrintIv, setOpen }: RsvpProps) {
     )}
     className="maxscreen:mt- h-full w-full flex flex-col maxscreen:items-center gap-y-6 py-14 sm:pl-14"
     >
-      <form onSubmit={handleSubmit} className="p-5 bg-white rounded-md flex flex-col gap-y-4 w-80 text-xs">
+      <div className="p-5 bg-white rounded-md flex flex-col gap-y-4 w-80 text-xs">
         <h3 className="vibes text-2xl font-bold tracking-wider capitalize text-center">Are You Attending</h3>
 
         <Inputs
-          value={name} name='name' placeholder='Name' type='name'
+          value={name} name='name' placeholder='Name   *required' type='name'
           required={true} setInputValue={setInputValue}
         />
         <Inputs
-          value={phoneNumber} name='phoneNumber' placeholder='PhoneNumber' type='tel'
+          value={phoneNumber} name='phoneNumber' placeholder='PhoneNumber   *required' type='tel'
           required={true} setInputValue={setInputValue}
         />
 
@@ -147,11 +146,12 @@ export default function Rsvp({ setPrintIv, setOpen }: RsvpProps) {
 
         <button
           disabled={!canSubmit}
+          onClick={handleSubmit} 
           className={`${canSubmit ? 'bg-pink-600 hover:bg-gradient-to-tr from-pink-500 to-pink-800' : 'bg-gray-500'} transition-colors text-white border-0 px-5 self-center text-sm w-fit py-3 rounded-[3px] focus:outline-0`}
         >
           {isLoading ? 'In progress...' : 'RSVP'}
         </button>
-      </form>
+      </div>
     </div>
   )
 }
