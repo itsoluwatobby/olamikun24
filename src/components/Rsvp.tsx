@@ -37,7 +37,7 @@ export default function Rsvp({ setPrintIv, setOpen }: RsvpProps) {
     if (isLoading) return
     setAppState(prev => ({...prev, isLoading: true}));
     try {
-      const apiUrl = import.meta.env.VITE_CONNECTION_URL
+      // const apiUrl = import.meta.env.VITE_CONNECTION_URL
       const date = new Intl.DateTimeFormat('en-us', {
         dateStyle: 'medium' }).format(new Date()) 
       let newEntry = {
@@ -49,7 +49,7 @@ export default function Rsvp({ setPrintIv, setOpen }: RsvpProps) {
         Message: message
       };
       newEntry = sanitizeEntries(newEntry);
-      const res = await fetch(apiUrl, {
+      const res = await fetch('https://sheet.best/api/sheets/364bf18b-2069-4654-8e31-90ad9e0014e8', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
