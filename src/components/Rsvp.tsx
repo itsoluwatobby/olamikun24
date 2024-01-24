@@ -33,7 +33,10 @@ export default function Rsvp({ setPrintIv }: RsvpProps) {
       console.log(inputValue)
       await fetch(ConnectionUrl, {
         method: 'POST',
-        
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: {}
       })
       setPrintIv('OPEN')
       toast.success('RSVP submitted, Please print your Invitation Card')
