@@ -1,4 +1,3 @@
-import { useRef } from "react"
 import InvitationCardImg from '/olamikun24.jpg'
 import { FaFileDownload } from "react-icons/fa"
 
@@ -7,7 +6,6 @@ type InvitationCardProps = {
   setPrintIv: React.Dispatch<React.SetStateAction<Toggle>>
 }
 export const InvitationCard = ({ setPrintIv }: InvitationCardProps) => {
-  const invitationRef = useRef(null)
 
   return (
     <section className='fixed z-50 flex items-cente justify-center bg-slate-700 bg-opacity-90 top-10 w-full h-[95%]'>
@@ -18,7 +16,6 @@ export const InvitationCard = ({ setPrintIv }: InvitationCardProps) => {
         Close
       </button>
       <figure
-        ref={invitationRef}
         className="relative w-[29rem] top-[6.5rem] -mt-16 shadow-md bg-slate-400 min-h-[37rem] max-h-[30rem] rounded-tr-xl rounded-bl-xl">
         <a href={InvitationCardImg}
         download={'OLAMIKUN24'}
