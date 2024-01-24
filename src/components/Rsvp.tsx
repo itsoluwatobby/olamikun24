@@ -11,15 +11,18 @@ const initInputValue = {
   name: '', phoneNumber: '', present: {
     "YES": true,
     "NO": false
-  }, numberOfGuests: 'Number of Guests', isAttendingType: 'What will you be Attending',
+  }, message: '', numberOfGuests: 'Number of Guests', 
+  isAttendingType: 'What will you be Attending',
 }
 const initAppState = { isLoading: false, error: '' }
+const ConnectionUrl = 'https://sheet.best/api/sheets/364bf18b-2069-4654-8e31-90ad9e0014e8'
+
 export default function Rsvp({ setPrintIv }: RsvpProps) {
   const [appState, setAppState] = useState<typeof initAppState>(initAppState);
   const WhatWillYouBeAttending = ['Engagement', 'Church Ceremony', 'Reception', 'All Events']
   const [inputValue, setInputValue] = useState<typeof initInputValue>(initInputValue);
 
-  const { name, phoneNumber, present, numberOfGuests, isAttendingType } = inputValue;
+  const { name, phoneNumber, present, message, numberOfGuests, isAttendingType } = inputValue;
   const { isLoading } = appState;
 
   const handleSubmit = () => {
@@ -105,6 +108,11 @@ export default function Rsvp({ setPrintIv }: RsvpProps) {
             ))
           }
         </select>
+
+        <Inputs
+          value={message} name='message' placeholder='Optional message to couple' type='text'
+          required={false} setInputValue={setInputValue}
+        />
 
         <button
           onClick={handleSubmit}
