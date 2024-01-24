@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { sanitizeEntries, setCustomBackgroundImage } from "../utils/helpers";
 import { toast } from "react-toastify";
 
