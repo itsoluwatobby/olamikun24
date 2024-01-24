@@ -8,7 +8,7 @@ type RsvpProps = {
 }
 
 const initInputValue = {
-  date: '', name: '', phoneNumber: '', 
+  name: '', phoneNumber: '', 
   present: { "YES": true, "NO": false }, 
   message: '', numberOfGuests: 'Number of Guests', 
   isAttendingType: 'What will you be Attending',
@@ -21,12 +21,15 @@ export default function Rsvp({ setPrintIv }: RsvpProps) {
   const WhatWillYouBeAttending = ['Engagement', 'Church Ceremony', 'Reception', 'All Events']
   const [inputValue, setInputValue] = useState<typeof initInputValue>(initInputValue);
 
-  const { date, name, phoneNumber, present, message, numberOfGuests, isAttendingType } = inputValue;
+  const { name, phoneNumber, present, message, numberOfGuests, isAttendingType } = inputValue;
   const { isLoading } = appState;
 
   const handleSubmit = async() => {
     setAppState(prev => ({...prev, isLoading: true}));
     try {
+      const date = new Intl.DateTimeFormat('en-us', {
+        dateStyle: 'medium'
+      }).format(new Date())
       console.log(inputValue)
       await fetch(ConnectionUrl, {
         method: 'POST',
