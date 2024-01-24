@@ -17,8 +17,8 @@ export default function PersonOfInterest() {
         <Person name="Olanipekun Amos" designation="Groomsmen" 
         image="https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/personOfInterest%2FIMG-20240123-WA0013.jpg?alt=media&token=08ce484e-3286-4af9-a226-b2c8f2d04ce9" 
         />
-        <Person name="Aleji Mary Montul" designation="Bridesmaid" 
-        image="https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/personOfInterest%2FIMG-20240123-WA0016.jpg?alt=media&token=3ea6404f-a801-4f1f-8699-b7d881570394" />
+        <Person name="Akanmu peace Omosalawa" designation="Bridesmaid" 
+        image="https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/personOfInterest%2FIMG-20240124-WA0001.jpg?alt=media&token=dc5435da-549c-44ea-b7d8-6f9e0dcaacb0en=3ea6404f-a801-4f1f-8699-b7d881570394" />
         <Person name="Gbenle Mubarak" designation="Groomsmen" 
         image="https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/personOfInterest%2FIMG-20240123-WA0014.jpg?alt=media&token=0cb5c404-11ec-49c9-bd75-b2dffe4b5a03" 
         />
