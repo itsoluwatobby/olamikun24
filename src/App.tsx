@@ -10,6 +10,7 @@ import OurWedding from './components/OurWedding'
 import PersonOfInterest from './components/PersonOfInterest'
 import Rsvp from './components/Rsvp';
 import { InvitationCard } from './components/InVitationCard';
+import { setCustomBackgroundImage } from './utils/helpers';
 
 export const App = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -17,17 +18,22 @@ export const App = () => {
 
   return (
     <main
+      style={setCustomBackgroundImage(
+        'https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/new%2FIMG-20240122-WA0006.jpg?alt=media&token=2e971398-df50-4b93-be6b-3df9e6987b8d',
+        {
+          backgroundAttachment: 'fixed',
+          backgroundSize: 'cover'
+        }
+      )}
       className='relative text-sm flex flex-col gap-y-5 w-full overflow-y-scroll transition-all scroll-smooth'>
-      <Header
-        open={open} setOpen={setOpen}
-      />
-      <Hero />
-      <About />
-      <OurStory />
-      <PersonOfInterest />
-      <Rsvp setPrintIv={setPrintIv} />
-      <OurWedding />
-      <Footer />
+      <Header open={open} setOpen={setOpen} />
+      <Hero setOpen={setOpen} />
+      <About setOpen={setOpen} />
+      <OurStory setOpen={setOpen} />
+      <PersonOfInterest setOpen={setOpen} />
+      <Rsvp setPrintIv={setPrintIv} setOpen={setOpen} />
+      <OurWedding setOpen={setOpen} />
+      <Footer setOpen={setOpen} />
 
       {
         printIv === 'OPEN' ?

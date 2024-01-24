@@ -14,12 +14,17 @@ export default function Header({ open, setOpen }: HeaderProps) {
 
   return (
     <nav
-      className='fixed top-0 pb-2 pt-5 flex items-center sm:justify-center z-50 bg-white w-full'>
-      <ul className={`bg-white maxscreen:w-full maxscreen:shadow-md maxscreen:rounded-b-2xl maxscreen:z-20 maxscreen:fixed maxscreen:top-0 maxscreen:py-5 flex items-center gap-5 justify-center font-medium maxscreen:flex-col transition-all ${open ? '' : 'maxscreen:hidden'}`}>
+      className='fixed top-0 h-16 flex items-center justify-between z-50 bg-gray-50 rounded-b-lg w-full'>
+      <h1 className="pacifico pl-4 text-lg font-bold first-letter:text-4xl first-letter:text-orange-600">OLAMIKUN'24</h1>
+
+      <ul className={`midscreen:bg-blue-50 midscreen:bg-opacity-90 midscreen:w-full midscreen:shadow-md midscreen:rounded-b-2xl midscreen:z-20 midscreen:fixed midscreen:top-0 midscreen:py-5 flex items-center gap-4 justify-center font-medium midscreen:flex-col transition-all ${open ? '' : 'midscreen:hidden'} pr-5`}>
         {
           navButtons.map(nav => (
             <li key={nav}
-              onClick={() => setActive(nav)}
+              onClick={() => {
+                setActive(nav)
+                setOpen(false)
+              }}
               className={`${active === nav ? 'border-b-[2px]' : ''} border-orange-500 border border-x-0 border-y-0 hover:border-b-[2px] pb-1 hover:opacity-90 cursor-pointer transition-all`}
             >
               <a href={`#${nav}`}>
@@ -32,7 +37,7 @@ export default function Header({ open, setOpen }: HeaderProps) {
 
       <MdMenuOpen 
         onClick={() => setOpen(true)} 
-        className='self-end sm:hidden text-3xl cursor-pointer' 
+        className='md:hidden text-3xl cursor-pointer mr-4' 
       />
     </nav>
   )

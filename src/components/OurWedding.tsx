@@ -2,23 +2,27 @@ import { eventTypes } from "../utils/constants";
 import { setCustomBackgroundImage } from "../utils/helpers"
 
 
-export default function OurWedding() {
+type OurWeddingProps = {
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>
+}
+export default function OurWedding({ setOpen }: OurWeddingProps) {
 
 
   return (
     <div
       id='Our Wedding'
+      onClick={() => setOpen(false)}
       className="maxscreen:mt- h-full w-full flex flex-col items-center gap-y-6 p-3"
     >
-      <div className="self-center">
-        <h3 className="inter text-center text-2xl text-pink-600 capitalize">Our Wedding</h3>
-        <h5 className="vibes font-semibold text-2xl">When and Where</h5>
+      <div className="self-center flex flex-col items-center gap-y-1">
+        <h3 className="inter text-center text-4xl text-pink-600 capitalize">Our Wedding</h3>
+        <h5 className="vibes font-semibold text-3xl">When and Where</h5>
       </div>
 
-      <div className="flex items-center gap-3 flex-wrap maxmobile:flex-col">
+      <div className="flex items-center gap-5 flex-wrap justify-center maxmobile:flex-col">
         {
           eventTypes.map(event => (
-            <PictureFrame
+            <PictureFrame key={event.eventType}
               eventType={event.eventType} eventTime={event.eventTime} image={event.image}
               venue={event.venue} eventDate={event.Time}
             />

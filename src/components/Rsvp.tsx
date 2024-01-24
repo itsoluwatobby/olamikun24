@@ -1,10 +1,11 @@
-import { useState } from "react";
-import { setCustomBackgroundImage } from "../utils/helpers";
+import { ChangeEvent, useState } from "react";
+import { sanitizeEntries, setCustomBackgroundImage } from "../utils/helpers";
 import { toast } from "react-toastify";
 
 
 type RsvpProps = {
-  setPrintIv: React.Dispatch<React.SetStateAction<Toggle>>
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setPrintIv: React.Dispatch<React.SetStateAction<Toggle>>;
 }
 
 const initInputValue = {
@@ -14,35 +15,51 @@ const initInputValue = {
   isAttendingType: 'What will you be Attending',
 }
 const initAppState = { isLoading: false, error: '' }
-const ConnectionUrl = 'https://sheet.best/api/sheets/364bf18b-2069-4654-8e31-90ad9e0014e8'
 
-export default function Rsvp({ setPrintIv }: RsvpProps) {
+export default function Rsvp({ setPrintIv, setOpen }: RsvpProps) {
   const [appState, setAppState] = useState<typeof initAppState>(initAppState);
-  const WhatWillYouBeAttending = ['Engagement', 'Church Ceremony', 'Reception', 'All Events']
+  const WhatWillYouBeAttending = ['All Events', 'Engagement', 'Church Ceremony', 'Reception']
   const [inputValue, setInputValue] = useState<typeof initInputValue>(initInputValue);
 
   const { name, phoneNumber, present, message, numberOfGuests, isAttendingType } = inputValue;
   const { isLoading } = appState;
 
+  const handleChecks = (event: ChangeEvent<HTMLInputElement>, target: string) => {
+    const [attriName, value] = [event.target.name, event.target.checked]
+    setInputValue(prev => ({ ...prev, [attriName]: {
+      [target]: value
+    }}))
+  }
+
   const handleSubmit = async() => {
     setAppState(prev => ({...prev, isLoading: true}));
     try {
+      const apiUrl = import.meta.env.VITE_CONNECTION_URL
       const date = new Intl.DateTimeFormat('en-us', {
-        dateStyle: 'medium'
-      }).format(new Date())
-      console.log(inputValue)
-      await fetch(ConnectionUrl, {
+        dateStyle: 'medium' }).format(new Date()) 
+      let newEntry = {
+        Date: date, Name: name, 
+        "Phone number": phoneNumber, 
+        "Will you be attending": present.YES ? 'YES' : 'NO',
+        "Number of guests": numberOfGuests,
+        "What will you be Attending": isAttendingType,
+        Message: message
+      };
+      newEntry = sanitizeEntries(newEntry);
+      const res = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: {}
+        body: JSON.stringify(newEntry)
       })
-      setPrintIv('OPEN')
-      toast.success('RSVP submitted, Please print your Invitation Card')
+      if (res.ok) {
+        setPrintIv('OPEN')
+        toast.success('Response recorded, Please print your Invitation Card')
+        setInputValue(initInputValue)
+      }
     }
     catch (error) {
-      console.log(error)
       setPrintIv('OPEN')
       setAppState(prev => ({...prev, error: ''}));
       toast.error('Fail to submit')
@@ -54,12 +71,13 @@ export default function Rsvp({ setPrintIv }: RsvpProps) {
   return (
     <div
     id='RSVP'
-      style={setCustomBackgroundImage(
-        'https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/new%2FIQA_7237.jpg?alt=media&token=7e15e73c-3aeb-49b6-bf16-238f4e3f6f70'
-      )}
-      className="maxscreen:mt- h-full w-full flex flex-col maxscreen:items-center gap-y-6 py-14 sm:pl-14"
+    onClick={() => setOpen(false)}
+    style={setCustomBackgroundImage(
+      'https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/new%2FIQA_7237.jpg?alt=media&token=7e15e73c-3aeb-49b6-bf16-238f4e3f6f70'
+    )}
+    className="maxscreen:mt- h-full w-full flex flex-col maxscreen:items-center gap-y-6 py-14 sm:pl-14"
     >
-      <div className="p-5 bg-white rounded-md flex flex-col gap-y-4 w-72 text-xs">
+      <div className="p-5 bg-white rounded-md flex flex-col gap-y-4 w-80 text-xs">
         <h3 className="vibes text-2xl font-bold tracking-wider capitalize text-center">Are You Attending</h3>
 
         <Inputs
@@ -77,7 +95,7 @@ export default function Rsvp({ setPrintIv }: RsvpProps) {
               type='radio'
               id='positive'
               name='present' checked={present.YES}
-              onChange={e => setInputValue(prev => ({ ...prev, [e.target.name]: e.target.checked }))}
+              onChange={(event) => handleChecks(event, 'YES')}
               className="border-x-0 focus-outline-0 p-2 border-t-0 w-3"
             />
             <label htmlFor="positive">Yes, I will be there</label>
@@ -86,7 +104,7 @@ export default function Rsvp({ setPrintIv }: RsvpProps) {
             <input type='radio'
               id='negative'
               name='present' checked={present.NO}
-              onChange={e => setInputValue(prev => ({ ...prev, [e.target.name]: e.target.checked }))}
+              onChange={(event) => handleChecks(event, 'NO')}
               className="border-x-0 focus-outline-0 p-2 border-t-0 w-3 h-3 marker:bg-pink-600"
             />
             <label htmlFor="negative">Sorry, I can't come</label>
