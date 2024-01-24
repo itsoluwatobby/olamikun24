@@ -8,10 +8,9 @@ type RsvpProps = {
 }
 
 const initInputValue = {
-  name: '', phoneNumber: '', present: {
-    "YES": true,
-    "NO": false
-  }, message: '', numberOfGuests: 'Number of Guests', 
+  date: '', name: '', phoneNumber: '', 
+  present: { "YES": true, "NO": false }, 
+  message: '', numberOfGuests: 'Number of Guests', 
   isAttendingType: 'What will you be Attending',
 }
 const initAppState = { isLoading: false, error: '' }
@@ -22,13 +21,17 @@ export default function Rsvp({ setPrintIv }: RsvpProps) {
   const WhatWillYouBeAttending = ['Engagement', 'Church Ceremony', 'Reception', 'All Events']
   const [inputValue, setInputValue] = useState<typeof initInputValue>(initInputValue);
 
-  const { name, phoneNumber, present, message, numberOfGuests, isAttendingType } = inputValue;
+  const { date, name, phoneNumber, present, message, numberOfGuests, isAttendingType } = inputValue;
   const { isLoading } = appState;
 
-  const handleSubmit = () => {
+  const handleSubmit = async() => {
     setAppState(prev => ({...prev, isLoading: true}));
     try {
       console.log(inputValue)
+      await fetch(ConnectionUrl, {
+        method: 'POST',
+        
+      })
       setPrintIv('OPEN')
       toast.success('RSVP submitted, Please print your Invitation Card')
     }
