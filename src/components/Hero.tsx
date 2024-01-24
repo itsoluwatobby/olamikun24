@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react"
 
+
 type HeroProps = {
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>
+  displayConfetti: Toggle;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setDisplayConfetti: React.Dispatch<React.SetStateAction<Toggle>>;
 }
-export default function Hero({ setOpen }: HeroProps) {
-  const targetDate = new Date("Mar 2, 2024 00:00:00").getTime()
-  const [displayConfetti, setDisplayConfetti] = useState<Toggle>('CLOSE')
+export default function Hero({ displayConfetti, setDisplayConfetti, setOpen }: HeroProps) {
+  const targetDate = new Date("Mar 2, 2024 00:00:00").getTime();
   const [dateCountDown, setDateCountDown] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
+    days: 0, hours: 0, minutes: 0, seconds: 0,
   })
 
   useEffect(() => {
@@ -37,7 +36,7 @@ export default function Hero({ setOpen }: HeroProps) {
         }));
       }
     }, 1000)
-  }, [targetDate])
+  }, [targetDate, setDisplayConfetti])
 
   return (
     <div
@@ -75,11 +74,11 @@ export default function Hero({ setOpen }: HeroProps) {
       <div className="absolute right-5 top-20 text-white b-pink-800 bg-opacity-70 rounded-md font-bold text-4xl flex items-center gap-x-5">
         {
           displayConfetti === 'OPEN' ? 
-            <div className="text-center pacifico">HAPPY MARRIED LIFE OLUWASEUN AND OLAMILEKAN</div>
+            <div className="slef-center text-center w-full pacifico text-3xl">HAPPY MARRIED LIFE OLUWASEUN AND OLAMILEKAN</div>
           :
           Object.entries(dateCountDown).map(([key, value]) => (
             <div key={key} className="font-serif flex flex-col justify-center items-center rounded-md border bg-opacity-60 shadow-lg p-2">
-              <span className={`${(key === 'days' && value === 0) ? 'text-green-700 animate-pulse' : ''} inter text-4xl`}>{value}</span>
+              <span className={`${(key === 'days' && value === 1) ? 'text-green-700 animate-pulse' : ''} inter text-4xl`}>{value}</span>
               <span className="capitalize italic text-base font-normal">{value === 1 ? key.substring(0, key.length - 1) : key}</span>
             </div>
           ))
