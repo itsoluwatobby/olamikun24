@@ -26,7 +26,7 @@ export const App = () => {
         }
       )}
       className='relative text-sm flex flex-col gap-y-5 w-full overflow-y-scroll transition-all scroll-smooth'>
-      <Header open={open} setOpen={setOpen} />
+      <Header open={open} setOpen={setOpen} setPrintIv={setPrintIv} />
       <Hero setOpen={setOpen} />
       <About setOpen={setOpen} />
       <OurStory setOpen={setOpen} />
