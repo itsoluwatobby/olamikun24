@@ -1,10 +1,10 @@
 import { setCustomBackgroundImage } from "../utils/helpers";
 
 
-type PersonOfInterestProps = {
+type BridalPartyProps = {
   setOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
-export default function PersonOfInterest({ setOpen }: PersonOfInterestProps) {
+export default function BridalParty({ setOpen }: BridalPartyProps) {
 
   return (
     <div
@@ -17,7 +17,7 @@ export default function PersonOfInterest({ setOpen }: PersonOfInterestProps) {
         <h4 className="pacifico text-3xl font-medium">Bridesmaid and Groomsmen</h4>
       </div>
 
-      <div className="flex items-center gap-x-4 flex-wrap min-w-[70%]">
+      <div className="flex items-center justify-center gap-x-4 flex-wrap min-w-[70%]">
         <Person name="Akanmu peace Omosalawa" designation="Bridesmaid" 
         image="https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/personOfInterest%2FIMG-20240124-WA0001.jpg?alt=media&token=dc5435da-549c-44ea-b7d8-6f9e0dcaacb0en=3ea6404f-a801-4f1f-8699-b7d881570394" />
 
@@ -45,7 +45,7 @@ type PersonProps ={
 const Person = ({ name, designation, image }: PersonProps) => {
 
   return (
-    <div className="flex-auto flex p-2 flex-col items-center gap-3">
+    <div className="flex-none flex p-2 flex-col items-center gap-3">
       <figure 
       style={setCustomBackgroundImage(image, {
         backgroundSize: 'contain',

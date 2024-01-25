@@ -71,7 +71,7 @@ export default function OurStory({ setOpen }: OurStoryProps) {
               'https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/Proposal%2FIMG-20240124-WA0004.jpg?alt=media&token=2024935f-e1b6-4c68-95ed-812c20bc8a09',
               'https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/Proposal%2FIMG-20240124-WA0003.jpg?alt=media&token=3c4d122a-3446-4240-90ce-b79f51a571c6'
             ]}
-            title='Proposal' date='February 24' count={4}
+            title='Proposal' date='February 24, 2023' count={4}
             content={`On this special day i took her out on a date like i've done she wasn't suspicious of anything since it isn't something out the ordinary. And like always say "One thing led to another" went on one knee and here we are today about to make it official `}
           />
 
@@ -89,11 +89,11 @@ export default function OurStory({ setOpen }: OurStoryProps) {
       </div>
 
       <div className="grid-pics">
-        <img src="https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/new%2FIQA_7185.jpg?alt=media&token=e7d448ec-7ce3-40f0-8640-d2587e7257a2" alt="" className="br reveal-image2" />
-        <img src="https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/new%2FIMG-20240122-WA0008.jpg?alt=media&token=d9170da6-232b-4c70-8be4-e85a6c757a4b" alt="" className="dr reveal-image" />
-        <img src="https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/new%2FIQA_7221.jpg?alt=media&token=d84faf06-6dbd-4b25-9579-8f66c3303f31" alt="" className="fr" />
-        <img src="https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/new%2FIMG-20240122-WA0009.jpg?alt=media&token=5b689827-ef35-4aa6-885c-3ca19ede8b0a" alt="" className="cr reveal-image" />
-        <img src="https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/new%2FIQA_7202.jpg?alt=media&token=6801b853-bc48-42e0-8b6d-5f983853c378" alt="" className="er reveal-image2" />
+        <img src="https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/new%2FIQA_7185.jpg?alt=media&token=e7d448ec-7ce3-40f0-8640-d2587e7257a2" alt="" className="br reveal-image2" loading="lazy" />
+        <img src="https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/new%2FIMG-20240122-WA0008.jpg?alt=media&token=d9170da6-232b-4c70-8be4-e85a6c757a4b" alt="" className="dr reveal-image" loading="lazy" />
+        <img src="https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/new%2FIQA_7221.jpg?alt=media&token=d84faf06-6dbd-4b25-9579-8f66c3303f31" alt="" className="fr" loading="lazy" />
+        <img src="https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/new%2FIMG-20240122-WA0009.jpg?alt=media&token=5b689827-ef35-4aa6-885c-3ca19ede8b0a" alt="" className="cr reveal-image" loading="lazy" />
+        <img src="https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/new%2FIQA_7202.jpg?alt=media&token=6801b853-bc48-42e0-8b6d-5f983853c378" alt="" className="er reveal-image2" loading="lazy" />
       </div>
 
     </div>
@@ -131,7 +131,7 @@ const TimelineCard = ({ title, date, content, image, count, isIntersecting, obse
             {
               image.map((img, i) => (
                 <figure key={i} className="flex-none bg-slate-300 bg-opacity-50 w-20 h-20 rounded-full shadow-sm border-0">
-                  <img src={img} alt="" className='h-full w-full object-contain rounded-full' />
+                  <img src={img} alt="" className='h-full w-full object-contain rounded-full' loading="lazy" />
                 </figure>
               ))
             }

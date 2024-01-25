@@ -36,10 +36,10 @@ export default function About({ setOpen }: AboutProps) {
 
         <div className="flex-auto flex items-baseline maxscreen:flex-col maxscreen:items-center gap-3">
           <figure className="flex-none bg-slate-300 bg-opacity-50 w-44 h-44 rounded-full shadow-sm border-0">
-            <img src="https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/mid%2FIMG-20240123-WA0017.jpg?alt=media&token=bfccc8a8-0df3-48e9-8971-4276d292f49c" alt="" className='h-full w-full object-cover rounded-full' />
+            <img src="https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/mid%2FIMG-20240123-WA0017.jpg?alt=media&token=bfccc8a8-0df3-48e9-8971-4276d292f49c" alt="" className='h-full w-full object-cover rounded-full' loading="lazy" />
           </figure>
           <figure className="flex-none bg-slate-300 bg-opacity-50 w-44 h-44 rounded-full shadow-sm border-0">
-            <img src="https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/new%2FDSC_1522.JPG?alt=media&token=1072b2bb-ee6c-44dc-b0a4-abf926f69638" alt="" className='h-full w-full object-contain rounded-full' />
+            <img src="https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/new%2FDSC_1522.JPG?alt=media&token=1072b2bb-ee6c-44dc-b0a4-abf926f69638" alt="" className='h-full w-full object-contain rounded-full' loading="lazy" />
           </figure>
         </div>
 

@@ -9,9 +9,9 @@ type RsvpProps = {
 }
 
 const initInputValue = {
-  name: '', phoneNumber: '', 
-  present: { "YES": true, "NO": false }, 
-  message: '', numberOfGuests: 'Number of Guests', 
+  name: '', phoneNumber: '',
+  present: { "YES": true, "NO": false },
+  message: '', numberOfGuests: 'Number of Guests',
   isAttendingType: 'What will you be Attending',
 }
 const initAppState = { isLoading: false, error: '' }
@@ -26,23 +26,26 @@ export default function Rsvp({ setPrintIv, setOpen }: RsvpProps) {
 
   const handleChecks = (event: ChangeEvent<HTMLInputElement>, target: string) => {
     const [attriName, value] = [event.target.name, event.target.checked]
-    setInputValue(prev => ({ ...prev, [attriName]: {
-      [target]: value
-    }}))
+    setInputValue(prev => ({
+      ...prev, [attriName]: {
+        [target]: value
+      }
+    }))
   }
 
   const canSubmit = [name, phoneNumber].every(Boolean);
 
-  const handleSubmit = async() => {
+  const handleSubmit = async () => {
     if (isLoading) return
-    setAppState(prev => ({...prev, isLoading: true}));
+    setAppState(prev => ({ ...prev, isLoading: true }));
     try {
       // const apiUrl = import.meta.env.VITE_CONNECTION_URL
       const date = new Intl.DateTimeFormat('en-us', {
-        dateStyle: 'medium' }).format(new Date()) 
+        dateStyle: 'medium'
+      }).format(new Date())
       let newEntry = {
-        Date: date, Name: name, 
-        "Phone number": phoneNumber, 
+        Date: date, Name: name,
+        "Phone number": phoneNumber,
         "Will you be attending": present.YES ? 'YES' : 'NO',
         "Number of guests": numberOfGuests,
         "What will you be Attending": isAttendingType,
@@ -64,21 +67,21 @@ export default function Rsvp({ setPrintIv, setOpen }: RsvpProps) {
     }
     catch (error) {
       setPrintIv('OPEN')
-      setAppState(prev => ({...prev, error: ''}));
+      setAppState(prev => ({ ...prev, error: '' }));
       toast.error('Fail to submit')
     }
-    finally{
-      setAppState(prev => ({...prev, isLoading: false}));
+    finally {
+      setAppState(prev => ({ ...prev, isLoading: false }));
     }
   }
   return (
     <div
-    id='RSVP'
-    onClick={() => setOpen(false)}
-    style={setCustomBackgroundImage(
-      'https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/new%2FIQA_7237.jpg?alt=media&token=7e15e73c-3aeb-49b6-bf16-238f4e3f6f70'
-    )}
-    className="maxscreen:mt- h-full w-full flex flex-col maxscreen:items-center gap-y-6 py-14 sm:pl-14"
+      id='RSVP'
+      onClick={() => setOpen(false)}
+      style={setCustomBackgroundImage(
+        'https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/new%2FIQA_7237.jpg?alt=media&token=7e15e73c-3aeb-49b6-bf16-238f4e3f6f70'
+      )}
+      className="maxscreen:mt- h-full w-full flex flex-col maxscreen:items-center gap-y-6 py-14 sm:pl-14"
     >
       <div className="p-5 bg-white rounded-md flex flex-col gap-y-4 w-80 text-xs">
         <h3 className="vibes text-2xl font-bold tracking-wider capitalize text-center">Are You Attending</h3>
@@ -146,7 +149,7 @@ export default function Rsvp({ setPrintIv, setOpen }: RsvpProps) {
 
         <button
           disabled={!canSubmit}
-          onClick={handleSubmit} 
+          onClick={handleSubmit}
           className={`${canSubmit ? 'bg-pink-600 hover:bg-gradient-to-tr from-pink-500 to-pink-800' : 'bg-gray-500'} transition-colors text-white border-0 px-5 self-center text-sm w-fit py-3 rounded-[3px] focus:outline-0`}
         >
           {isLoading ? 'In progress...' : 'RSVP'}

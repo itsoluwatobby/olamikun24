@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import OurStory from './components/OurStory'
 import OurWedding from './components/OurWedding'
-import PersonOfInterest from './components/PersonOfInterest'
+import BridalParty from './components/BridalParty'
 import Rsvp from './components/Rsvp';
 import { InvitationCard } from './components/InVitationCard';
 import { setCustomBackgroundImage } from './utils/helpers';
@@ -35,7 +35,7 @@ export const App = () => {
       />
       <About setOpen={setOpen} />
       <OurStory setOpen={setOpen} />
-      <PersonOfInterest setOpen={setOpen} />
+      <BridalParty setOpen={setOpen} />
       <Rsvp setPrintIv={setPrintIv} setOpen={setOpen} />
       <OurWedding setOpen={setOpen} />
       <Footer setOpen={setOpen} />

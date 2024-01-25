@@ -22,14 +22,13 @@ export default function Footer({ setOpen }: FooterProps) {
                 <p>Victor</p>
                 <p className="inter font-medium">08106346950</p>
               </div>  
-
             </div>
           </div>
         </div>
 
         <a href="#Home">
           <figure className="bg-gray-800 w-14 h-14 rounded-full">
-            <img src="https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/new%2FIQA_7237.jpg?alt=media&token=7e15e73c-3aeb-49b6-bf16-238f4e3f6f70'" alt="" className="rounded-full h-full w-full object-cover" />
+            <img src="https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/new%2FIQA_7237.jpg?alt=media&token=7e15e73c-3aeb-49b6-bf16-238f4e3f6f70'" alt="" className="rounded-full h-full w-full object-cover" loading="lazy" />
           </figure>
         </a>
       </div>
