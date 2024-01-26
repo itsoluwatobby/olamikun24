@@ -24,7 +24,7 @@ export default function OurWedding({ setOpen }: OurWeddingProps) {
           eventTypes.map(event => (
             <PictureFrame key={event.eventType}
               eventType={event.eventType} eventTime={event.eventTime} image={event.image}
-              venue={event.venue} eventDate={event.Time}
+              venue={event.venue} eventDate={event.Time} locationLink={event.locationLink}
             />
           ))
         }
@@ -37,10 +37,11 @@ type PictureFrameProps = {
   eventType: string;
   eventDate: string;
   image: string;
+  locationLink: string;
   eventTime: string;
   venue: string
 }
-const PictureFrame = ({ eventType, eventDate, image, eventTime, venue }: PictureFrameProps) => {
+const PictureFrame = ({ eventType, eventDate, image, eventTime, locationLink, venue }: PictureFrameProps) => {
 
 
   return (
@@ -48,13 +49,13 @@ const PictureFrame = ({ eventType, eventDate, image, eventTime, venue }: Picture
       style={setCustomBackgroundImage(image)}
       className="relative h-[26rem] w-80 bg-slate-300 rounded-tr-md rounded-bl-md">
 
-      <div className="inter text-xs rounded-sm absolute bottom-3 flex flex-col gap-y-4 items-center bg-white w-[90%] left-4 px-4 py-3">
+      <a href={locationLink} target='_blank' className="inter text-xs rounded-sm absolute bottom-3 flex flex-col gap-y-4 items-center bg-white w-[90%] left-4 px-4 py-3">
         <p className="pacifico text-2xl whitespace-nowrap">{eventType}</p>
         <div className="h-[2px] w-full bg-pink-500" />
         <p className="">Date: {eventTime}</p>
         <p className="">Time: {eventDate}</p>
         <p className="text-xs text-center">{venue}</p>
-      </div>
+      </a>
     </article>
   )
 }
