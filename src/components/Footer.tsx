@@ -16,11 +16,11 @@ export default function Footer({ setOpen }: FooterProps) {
             <div className="flex items-center gap-8">
               <div className="flex flex-col items-center">
                 <p>Bukola</p>
-                <p className="inter font-medium">09130014348</p>
+                <a href='tel+2349130014348' className="inter font-medium">09130014348</a>
               </div>  
               <div className="flex flex-col items-center">
                 <p>Victor</p>
-                <p className="inter font-medium">08106346950</p>
+                <a href='tel+2348106346950' className="inter font-medium">08106346950</a>
               </div>  
             </div>
           </div>
