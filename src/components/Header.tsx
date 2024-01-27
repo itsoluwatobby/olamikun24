@@ -9,7 +9,7 @@ type HeaderProps = {
 }
 export default function Header({ open, setOpen, setPrintIv }: HeaderProps) {
   const navButtons = [
-    'Home', 'About', 'Our Story', 'Person of Interest', 'RSVP', 'Our Wedding', 'Contact']
+    'Home', 'About', 'Our Story', 'Bridal Party', 'RSVP', 'Our Wedding', 'Contact']
   const [active, setActive] = useState<string>(navButtons[0]);
 
   const closeModal = (nav: string) => {

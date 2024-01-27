@@ -8,7 +8,7 @@ export default function BridalParty({ setOpen }: BridalPartyProps) {
 
   return (
     <div
-      id='Person of Interest'
+      id='Bridal Party'
       onClick={() => setOpen(false)}
       className="maxscreen:mt- h-full w-full flex flex-col items-center gap-y-6 p-3"
     >
