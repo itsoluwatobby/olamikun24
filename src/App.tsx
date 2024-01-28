@@ -35,7 +35,7 @@ export const App = () => {
         <meta property="og:title" content={"OLAMIKUN'24"} />
         <meta property="og:description" content={"Our wedding is on March 2, 2024"} />
         <meta property="og:url" content={"https://olamikun24.vercel.app"} />
-        <meta property="og:image" content={"https://firebasestorage.googleapis.com/v0/b/olamikun24.appspot.com/o/new%2FIMG-20240122-WA0006.jpg?alt=media&token=2e971398-df50-4b93-be6b-3df9e6987b8d"} />
+        <meta property="og:image" content={"../public/olamikun24.jpg"} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="olamikun24" />
 
