@@ -48,7 +48,7 @@ export default function Rsvp({ setPrintIv, setOpen }: RsvpProps) {
         "Phone number": phoneNumber,
         "Will you be attending": present.YES ? 'YES' : 'NO',
         "Number of guests": numberOfGuests,
-        "What will you be Attending": isAttendingType,
+        "What will you be Attending": isAttendingType === initInputValue.isAttendingType ? 'All Events' : isAttendingType,
         Message: message
       };
       newEntry = sanitizeEntries(newEntry);
