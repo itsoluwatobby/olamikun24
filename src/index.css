@@ -75,11 +75,19 @@ body {
 .reveal-image {
   animation: openImage 5s ease-in-out 30s infinite forwards;
   -moz-animation: openImage 5s ease-in-out 30s infinite forwards;
+  animation-timeline: view();
+  -moz-animation-timeline: view();
+  animation-range: contain;
+  -moz-animation-range: contain;
 }
 
 .reveal-image2 {
   animation: openImage 8s ease-in-out 30s infinite alternate;
   -moz-animation: openImage 8s ease-in-out 30s infinite alternate;
+  animation-timeline: view();
+  -moz-animation-timeline: view();
+  animation-range: contain;
+  -moz-animation-range: contain;
 }
 
 @keyframes openImage {
