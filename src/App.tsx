@@ -13,11 +13,13 @@ import Rsvp from './components/Rsvp';
 import { InvitationCard } from './components/InVitationCard';
 import { setCustomBackgroundImage } from './utils/helpers';
 import { Helmet } from 'react-helmet';
+import { Snowflakes } from './components/snowflakes/Snowflakes';
 
 export const App = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [printIv, setPrintIv] = useState<Toggle>('CLOSE')
   const [displayConfetti, setDisplayConfetti] = useState<Toggle>('CLOSE')
+  const [flakes, setFlakes] = useState<Toggle>('CLOSE')
 
   return (
     <main
@@ -29,6 +31,8 @@ export const App = () => {
         }
       )}
       className='relative text-sm flex flex-col gap-y-5 w-full overflow-y-scroll transition-all scroll-smooth'>
+      
+      {flakes === 'OPEN' ? <Snowflakes /> : null}
       
       <Helmet>
         {/* FACEBOOK OG-graph */}
@@ -49,6 +53,7 @@ export const App = () => {
 
       <Header open={open} setOpen={setOpen} setPrintIv={setPrintIv} />
       <Hero
+        setFlakes={setFlakes}
         setOpen={setOpen} displayConfetti={displayConfetti}
         setDisplayConfetti={setDisplayConfetti}
       />
