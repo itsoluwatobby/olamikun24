@@ -18,6 +18,15 @@ body {
   font-family: 'Playfair Display', serif;
 }
 
+.text-gradient {
+  font-weight: 800;
+  text-shadow: 3px 2px 2px;
+  background: -webkit-linear-gradient(#4945cd, #2c0202);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .inter {
   font-family: 'Inter', sans-serif;
 }

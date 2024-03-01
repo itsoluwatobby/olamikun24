@@ -53,7 +53,7 @@ export default function Hero({ displayConfetti, setDisplayConfetti, setOpen, set
       <div className="flex flex-col h-full maxscreen:pt-3 justify-center items-center w-full">
         <div className="flex flex-col items-center gap-y-1">
 
-          <div className="pacifico shadow-lg rounded-full p-6 border-2 border-y-slate-800 border-x-black w-fit self-center flex flex-col gap-y-1 items-center">
+          <div className="pacifico shadow-lg rounded-full p-6 border-2 border-y-slate-800 border-x-gray-500 w-fit self-center flex flex-col gap-y-1 items-center">
             {
               displayConfetti === 'OPEN' ?
               <>
@@ -80,10 +80,10 @@ export default function Hero({ displayConfetti, setDisplayConfetti, setOpen, set
       <div className="absolute right-5 top-20 text-white b-pink-800 bg-opacity-70 rounded-md font-bold text-4xl flex items-center gap-x-5">
         {
           displayConfetti === 'OPEN' ? 
-            <div className="slef-center text-center w-full pacifico text-3xl p-2 ">HAPPY MARRIED LIFE OLUWASEUN AND OLAMILEKAN</div>
+            <div className="text-gradien w-full self-center text-center pacifico text-3xl lg:text-4xl p-2">HAPPY MARRIED LIFE OLUWASEUN AND OLAMILEKAN</div>
           :
           Object.entries(dateCountDown).map(([key, value]) => (
-            <div key={key} className={`${(key === 'days' && value < 1) ? 'hidden' : 'flex'} font-serif flex flex-col justify-center items-center rounded-md border bg-opacity-60 shadow-lg p-2`}>
+            <div key={key} className={`${(key === 'days' && value < 1) ? 'hidden' : 'flex'} ${(dateCountDown.days === 0) && (key === 'hours' && value < 1) ? 'hidden' : 'flex'} font-serif flex flex-col justify-center items-center rounded-md border bg-opacity-60 shadow-lg p-2`}>
               <span className={`${(key === 'days' && value === 1) ? 'text-green-700 animate-pulse' : ''} inter text-4xl`}>{value}</span>
               <span className="capitalize italic text-base font-normal">{value === 1 ? key.substring(0, key.length - 1) : key}</span>
             </div>
