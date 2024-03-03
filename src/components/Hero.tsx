@@ -57,9 +57,9 @@ export default function Hero({ displayConfetti, setDisplayConfetti, setOpen, set
             {
               displayConfetti === 'OPEN' ?
               <>
-                <p className="motion-text text-5xl capitalize w-fit">It&apos;s</p>
-                <p className="text-3xl ml-6 capitalize w-fit">About</p>
-                <p className="motion-text-reverse text-5xl capitalize w-fit">To Go Down</p>
+                <p className="motion-text text-5xl capitalize w-fit">Yes</p>
+                <p className="text-3xl ml-6 capitalize w-fit">We</p>
+                <p className="motion-text-reverse text-5xl capitalize w-fit">Did It</p>
               </>
               :
               <>
@@ -73,7 +73,7 @@ export default function Hero({ displayConfetti, setDisplayConfetti, setOpen, set
           <div className="maxmobile:text-2xl text-3xl tracking-wide font-medium flex items-baseline gap-x-2">
             <p className="first-letter:text-5xl">Oluwaseun</p> and <p className="first-letter:text-5xl">Olamilekan</p>
           </div>
-          <p className="font-medium text-lg bg-opacity-50 rounded-md py-1 px-2 bg-slate-300">We are getting married {displayConfetti === 'OPEN' ? 'Today' : 'March 2, 2024'}</p>
+          <p className="font-medium text-lg bg-opacity-50 rounded-md py-1 px-2 bg-slate-300">Happy married life to {displayConfetti === 'OPEN' ? 'Us' : 'March 2, 2024'}</p>
         </div>
       </div>
 
