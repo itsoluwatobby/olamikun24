@@ -87,10 +87,12 @@ export default function Rsvp({ setPrintIv, setOpen }: RsvpProps) {
         <h3 className="vibes text-2xl font-bold tracking-wider capitalize text-center">Are You Attending</h3>
 
         <Inputs
+          disabled 
           value={name} name='name' placeholder='Name   *required' type='name'
           required={true} setInputValue={setInputValue}
         />
         <Inputs
+          disabled 
           value={phoneNumber} name='phoneNumber' placeholder='PhoneNumber   *required' type='tel'
           required={true} setInputValue={setInputValue}
         />
@@ -99,6 +101,7 @@ export default function Rsvp({ setPrintIv, setOpen }: RsvpProps) {
           <div className="flex items-center gap-x-2">
             <input
               type='radio'
+              disabled
               id='positive'
               name='present' checked={present.YES}
               onChange={(event) => handleChecks(event, 'YES')}
@@ -109,6 +112,7 @@ export default function Rsvp({ setPrintIv, setOpen }: RsvpProps) {
           <div className="flex items-center gap-x-2">
             <input type='radio'
               id='negative'
+              diabled
               name='present' checked={present.NO}
               onChange={(event) => handleChecks(event, 'NO')}
               className="border-x-0 focus-outline-0 p-2 border-t-0 w-3 h-3 marker:bg-pink-600"
@@ -117,7 +121,7 @@ export default function Rsvp({ setPrintIv, setOpen }: RsvpProps) {
           </div>
         </div>
 
-        <select name="numberOfGuests" id=""
+        <select disabled name="numberOfGuests" id=""
           value={numberOfGuests}
           onChange={e => setInputValue(prev => ({ ...prev, [e.target.name]: e.target.value }))}
           className="inter text-[12px] focus:outline-0 border-0 border-gray-700 border-b-[1px] py-2"
@@ -130,7 +134,7 @@ export default function Rsvp({ setPrintIv, setOpen }: RsvpProps) {
           }
         </select>
 
-        <select name="isAttendingType" value={isAttendingType}
+        <select disabled name="isAttendingType" value={isAttendingType}
           onChange={e => setInputValue(prev => ({ ...prev, [e.target.name]: e.target.value }))}
           className="inter text-[12px] focus:outline-0 border-0 border-gray-700 border-b-[1px] py-2"
         >
@@ -143,12 +147,14 @@ export default function Rsvp({ setPrintIv, setOpen }: RsvpProps) {
         </select>
 
         <Inputs
+          disabled 
           value={message} name='message' placeholder='Optional message to couple' type='text'
           required={false} setInputValue={setInputValue}
         />
 
         <button
-          disabled={!canSubmit}
+          disabled 
+          //disabled={!canSubmit}
           onClick={handleSubmit}
           className={`${canSubmit ? 'bg-pink-600 hover:bg-gradient-to-tr from-pink-500 to-pink-800' : 'bg-gray-500'} transition-colors text-white border-0 px-5 self-center text-sm w-fit py-3 rounded-[3px] focus:outline-0`}
         >
