@@ -30,7 +30,7 @@ export const App = () => {
           backgroundSize: 'cover'
         }
       )}
-      className='relative text-sm flex flex-col gap-y-5 w-full overflow-y-scroll transition-all scroll-smooth'>
+      className='relative max-w-[1440px] mx-auto text-sm flex flex-col gap-y-5 w-full overflow-y-scroll transition-all scroll-smooth'>
       
       {flakes === 'OPEN' ? <Snowflakes /> : null}
       
